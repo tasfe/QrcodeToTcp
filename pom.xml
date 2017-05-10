@@ -26,10 +26,9 @@
         <jdk.version>1.7</jdk.version>
         <buildjdk.version>1.7</buildjdk.version>
         <netty.version>4.0.34.Final</netty.version>
-        <spring.version>4.2.5.RELEASE</spring.version>
+        <spring.version>4.3.4.RELEASE</spring.version>
         <cglib.version>3.1</cglib.version>
-        <aspectj.version>1.8.2</aspectj.version>
-        <dom4j.version>1.6.1</dom4j.version>
+        <aspectj.version>1.8.9</aspectj.version>
     </properties>
 
     <dependencies>
@@ -157,7 +156,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
+                <version>3.3</version>
                 <configuration>
                     <source>${jdk.version}</source>
                     <target>${jdk.version}</target>
