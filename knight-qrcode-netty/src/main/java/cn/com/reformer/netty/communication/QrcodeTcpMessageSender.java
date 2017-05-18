@@ -48,4 +48,11 @@ public class QrcodeTcpMessageSender extends TCPMessageSender {
     }
 
 
+    public ClientManager getClientManager() {
+        return clientManager;
+    }
+
+    public void setClientManager(ClientManager clientManager) {
+        this.clientManager = clientManager;
+    }
 }

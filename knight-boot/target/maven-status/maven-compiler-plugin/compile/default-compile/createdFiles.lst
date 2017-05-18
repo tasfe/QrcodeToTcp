@@ -1,0 +1,5 @@
+org\kfit\service\HelloService.class
+com\kfit\service\HelloService2.class
+com\kfit\config\ConfigClass.class
+com\kfit\HelloControler.class
+com\kfit\App.class

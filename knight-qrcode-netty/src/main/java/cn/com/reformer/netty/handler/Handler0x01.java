@@ -8,12 +8,16 @@ import cn.com.reformer.netty.msg.AbsMsg;
 import cn.com.reformer.netty.msg.MSG_0x01;
 import cn.com.reformer.netty.msg.MSG_0x3003;
 import cn.com.reformer.netty.msg.json.CommonResponse;
+import cn.com.reformer.netty.observer.EventWatcher;
+import cn.com.reformer.netty.observer.UploadQrCodeEvent;
 import cn.com.reformer.netty.util.Constants;
 import cn.com.reformer.netty.util.msg.ClientManager;
 import io.netty.channel.ChannelHandlerContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.Observable;
 
 /**
  *  Copyright 2017 the original author or authors hangzhou Reformer 
@@ -30,6 +34,7 @@ public class Handler0x01 extends TCPMessageHandlerAdapter {
     @Autowired(required = true)
     private QrcodeTcpMessageSender qrcodeTcpMessageSender;
 
+
     public void doHandle(AbsMsg m, ChannelHandlerContext ctx) {
         MSG_0x3003 response = new MSG_0x3003();
         CommonResponse commonResponse = new CommonResponse();
@@ -38,12 +43,11 @@ public class Handler0x01 extends TCPMessageHandlerAdapter {
                 MSG_0x01 msg = (MSG_0x01) m;
 
                 String qrcode =msg.getQrCode();
-
-                int count =0;
-                while(count<1000){
-                    qrcodeTcpMessageSender.openDoor("0090C2501025","123456789");
-                    count++;
-                }
+                UploadQrCodeEvent uploadQrCodeEvent=new UploadQrCodeEvent();
+                EventWatcher eventWatcher=new EventWatcher();
+                uploadQrCodeEvent.addObserver(eventWatcher);
+                uploadQrCodeEvent.setQrCode(qrcode);
+                uploadQrCodeEvent.notifyObservers();
             }
 
         } catch (Exception e) {
@@ -63,5 +67,6 @@ public class Handler0x01 extends TCPMessageHandlerAdapter {
     public void setClientManager(ClientManager clientManager) {
         this.clientManager = clientManager;
     }
+
 
 }

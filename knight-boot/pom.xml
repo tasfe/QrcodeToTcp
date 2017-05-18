@@ -47,6 +47,14 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+        </dependency>
 
       <!--  <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -59,10 +67,7 @@
         </dependency>
 
         &lt;!&ndash;配置jsp jstl的支持&ndash;&gt;
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>jstl</artifactId>
-        </dependency>
+
 
         &lt;!&ndash;添加对tomcat的支持&ndash;&gt;
         <dependency>
@@ -72,10 +77,7 @@
         </dependency>
 
         &lt;!&ndash;对jsp的支持&ndash;&gt;
-        <dependency>
-            <groupId>org.apache.tomcat.embed</groupId>
-            <artifactId>tomcat-embed-jasper</artifactId>
-        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
